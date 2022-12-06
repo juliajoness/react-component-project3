@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from "react"
+import AlbumsContainer from "./Components/AlbumsContainer"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const albumAPI = "http://localhost:9292/albums"
+// const reviewsAPI = "http://localhost:9292/reviews"
+
+function App(){
+
+const[albumData, setAlbumData] = useState([])
+
+useEffect(()=>{
+  fetch(albumAPI)
+  .then((response) => response.json())
+  .then(setAlbumData)
+},[])
+
+// console.log(albumData)
+
+return(
+  <div>
+    <AlbumsContainer albumData={albumData}/>
+  </div>
   );
 }
 
