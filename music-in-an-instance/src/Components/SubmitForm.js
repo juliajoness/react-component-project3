@@ -12,9 +12,9 @@ function SubmitForm () {
     setRating("")
     
     fetch("http://localhost:9292/reviews", {
-    method: 'POST',
-    headers: {'Content-type': 'application/json'},
-    body: JSON.stringify({comment: comment, rating: rating }),
+        method: 'POST',
+        headers: {'Content-type': 'application/json'},
+        body: JSON.stringify({comment: comment, rating: rating }),
 }
     )
     .then((response) => response.json())
@@ -25,8 +25,8 @@ function SubmitForm () {
     return(
         <div>
             <form onSubmit={handleSubmit}>
-                <input value={comment} type="text" name='comment' placeholder='Comment' onChange={(e) =>setComment(e.target.value)}/>
-                <input value={rating} type="number" min="1" max= "10" name='rating' placeholder='Rating' onChange={(e) =>setRating(e.target.value)}/>
+                <input value={comment} type="text" name='comment' placeholder='Comment' onChange={(e) =>setComment(e.target.value)} required/>
+                <input value={rating} type="number" min="1" max= "10" name='rating' placeholder='Rating' onChange={(e) =>setRating(e.target.value)} required/>
                 <button type="submit" >Add Review</button>
             </form>
         </div>
