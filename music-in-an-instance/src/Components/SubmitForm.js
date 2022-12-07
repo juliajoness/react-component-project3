@@ -3,22 +3,23 @@ import React, {useState} from "react";
 
 function SubmitForm () {
     const [comment, setComment] = useState ("")
-    const [ rating, setRating] = useState ("")
+    const [rating, setRating] = useState ("")
 
     const handleSubmit = (e) => 
     {e.preventDefault()
+
     setComment("")
     setRating("")
-    let userInput = {comment: comment, rating: rating }
     
-    fetch("http://localhost:9292/users", {
+    fetch("http://localhost:9292/reviews", {
     method: 'POST',
     headers: {'Content-type': 'application/json'},
-    body: JSON.stringify(userInput)
+    body: JSON.stringify({comment: comment, rating: rating }),
 }
     )
-    .then((response) = response.json())
-    .then(postReview(userInput))
+    .then((response) => response.json())
+    .then((data)=> console.log(data))
+
     }
 
     return(
