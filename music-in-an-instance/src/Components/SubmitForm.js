@@ -11,7 +11,7 @@ function SubmitForm () {
     setRating("")
     let userInput = {comment: comment, rating: rating }
     
-    fetch("http://localhost:9292/reviews", {
+    fetch("http://localhost:9292/users", {
     method: 'POST',
     headers: {'Content-type': 'application/json'},
     body: JSON.stringify(userInput)
@@ -25,7 +25,7 @@ function SubmitForm () {
         <div>
             <form onSubmit={handleSubmit}>
                 <input value={comment} type="text" name='comment' placeholder='Comment' onChange={(e) =>setComment(e.target.value)}/>
-                <input value={rating} type="text" name='rating' placeholder='Rating' onChange={(e) =>setRating(e.target.value)}/>
+                <input value={rating} type="number" min="1" max= "10" name='rating' placeholder='Rating' onChange={(e) =>setRating(e.target.value)}/>
                 <button type="submit" >Add Review</button>
             </form>
         </div>
