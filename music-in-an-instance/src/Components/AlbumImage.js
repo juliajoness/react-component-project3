@@ -2,7 +2,7 @@ import React from "react"
 
 function AlbumImage({albumProp}){
 
-    console.log("images:", albumProp.image_url)
+    // console.log("images:", albumProp.image_url)
 
     return(
         <div>
