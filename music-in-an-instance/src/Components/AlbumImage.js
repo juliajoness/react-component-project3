@@ -1,12 +1,41 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
+import ReviewComponent from "./ReviewComponent.js"
 
-function AlbumImage({albumProp}){
+function AlbumImage({ albumProp }) {
+    const [reviews, setReviews] = useState([])
+    function removeReviewFromState (review){
+        const remainingReviews = reviews.filter( (r) => r.id !== review.id)
+        setReviews(remainingReviews)
+      }
+    
+    
+      function updateReview (review){
+        const updatedReviews = []
+        reviews.find((r) => {
+          
+          if (r.id === review.id){
+            updatedReviews.push(review)
+          } 
+          else{updatedReviews.push(r)}
+          
+        })
+        setReviews(updatedReviews);
+      }
+    
+    useEffect(() => {
+        fetch(`http://localhost:9292/reviews_album/${albumProp.id}`)
+            .then(res => res.json())
+            .then(data => setReviews(data));
+    }, [albumProp])
 
-    // console.log("images:", albumProp.image_url)
-
-    return(
+    return (
         <div>
-            <img src={albumProp.image_url} alt={albumProp.title}/>
+            <img className="image" src={albumProp.image_url} alt={albumProp.title} />
+            {/* review map here */}
+            {reviews.map(review => (
+                <ReviewComponent reviewRemover={removeReviewFromState} updateReview={updateReview} setReviewsData={setReviews} reviewProp={review} />
+
+            ))}
         </div>
     )
 }

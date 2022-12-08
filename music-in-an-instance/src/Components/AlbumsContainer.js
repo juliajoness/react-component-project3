@@ -1,17 +1,16 @@
-import React from "react"
+import React,{useState} from "react"
 import AlbumImage from "./AlbumImage";
 import DropdownComponent from "./DropdownComponent";
+import ReviewComponent from "./ReviewComponent";
 
 function AlbumsContainer({albumData}){
-
-    const albumComponents= albumData.map((albumObj) => {
-        return <AlbumImage key={albumObj.id} albumProp={albumObj}/>
-    })
+    const [displayAlbum, setDisplayAlbum] = useState(albumData[0])
 
     return(
-        <div>
-            {albumComponents}
-            <DropdownComponent dropProp = {albumData}/>
+        <div className="image_container">
+            {displayAlbum ? <AlbumImage albumProp={displayAlbum}/> : <h1>Click dropdown</h1> }
+            <DropdownComponent setDisplayAlbum={setDisplayAlbum} dropProp = {albumData}/>
+            {/* <ReviewComponent reivewProp={reviewsData} reviewRemover={reviewRemover} updateReview={updateReview} setReviewsData={setReviewsData}/> */}
         </div>
     )
 }

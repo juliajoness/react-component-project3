@@ -1,13 +1,14 @@
 import React, {useState} from "react";
 
-
 function SubmitForm ({reviewsData, setReviewsData}) {
+ 
     let initialForm = {
         comment: "",
         rating: ""
     }
 
     const [form, setForm] = useState(initialForm)
+
     const handleSubmit = (e) => {
         e.preventDefault()
         fetch("http://localhost:9292/reviews",{

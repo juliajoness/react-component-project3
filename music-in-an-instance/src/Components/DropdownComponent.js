@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import AlbumImage from './AlbumImage';
 
-function DropdownComponent({ dropProp }) {
+function DropdownComponent({ dropProp,setDisplayAlbum }) {
 
     let handleChange = (e) => {
-        console.log(e.target.value)
+        let index = e.target.value
+        setDisplayAlbum(dropProp[index])
     }
 
     return (
         <div>
             <select  onChange={handleChange} className='album-selector'>
                 <option value="Default">--Please Choose An Album--</option>
-                {dropProp.map(dropObj =>
-                    <option value={dropObj.image_url}>{dropObj.title}</option>
+                {dropProp.map((dropObj,i) =>
+                    <option key={i} value={i}>{dropObj.title}</option>
                 )}
             </select>
         </div>
