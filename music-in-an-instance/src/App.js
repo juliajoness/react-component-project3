@@ -47,8 +47,8 @@ function App(){
   return(
     <div>
       <AlbumsContainer albumData={albumData}/>
-      <ReviewsContainer setReviewsData = {setReviewsData} reviewsData={reviewsData} reviewRemover = {removeReviewFromState} updateReview = {updateReview}/>
       <SubmitForm reviewsData={reviewsData}setReviewsData = {setReviewsData}/>
+      <ReviewsContainer setReviewsData = {setReviewsData} reviewsData={reviewsData} reviewRemover = {removeReviewFromState} updateReview = {updateReview}/>
     </div>
     );
 }

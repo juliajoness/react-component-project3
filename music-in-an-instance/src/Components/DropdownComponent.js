@@ -1,22 +1,22 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import AlbumImage from './AlbumImage';
 
-function DropdownComponent({dropProp}){
+function DropdownComponent({ dropProp }) {
 
-    const dropData = dropProp.map((dropObj)=> {
-        return (
-            dropObj.title
-            )
-    })
+    let handleChange = (e) => {
+        console.log(e.target.value)
+    }
 
-return(
-    <div>
-        <select className='album-selector'>
-            <option value="Default">--Please Choose An Album--</option>
-            <option value="Album_Name">{dropData}</option>
-        </select>
-    </div>
-)
-} 
+    return (
+        <div>
+            <select  onChange={handleChange} className='album-selector'>
+                <option value="Default">--Please Choose An Album--</option>
+                {dropProp.map(dropObj =>
+                    <option value={dropObj.image_url}>{dropObj.title}</option>
+                )}
+            </select>
+        </div>
+    )
+}
 
 export default DropdownComponent

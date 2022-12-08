@@ -36,13 +36,15 @@ const [rating, setRating] = useState ("")
     return(
         <div className="comment-display">
             <div>
-            <h2>Comment:{reviewProp.comment}</h2> 
+                <h2>Comment:{reviewProp.comment}</h2> 
             <div/>
             <div>
-            <h2>Rating:{reviewProp.rating}</h2>
+                <h2>Rating:{reviewProp.rating}</h2>
             </div>
         </div>
-            <Button onClick={onDelete} size='mini' color='red'>X</Button>
+            <br></br>
+                <Button onClick={onDelete} size='mini' color='red'>X</Button>
+            <br></br>
             <div>
                 <Form onSubmit={onUpdate}>
                     <Form.Field>
