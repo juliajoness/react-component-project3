@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function SubmitForm ({reviewsData, setReviewsData}) {
+function SubmitForm() {
  
     let initialForm = {
         comment: "",
@@ -8,6 +8,7 @@ function SubmitForm ({reviewsData, setReviewsData}) {
     }
 
     const [form, setForm] = useState(initialForm)
+    const[reviewsData, setReviewsData] = useState([])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -22,8 +23,10 @@ function SubmitForm ({reviewsData, setReviewsData}) {
     })
 }
 
-     let handleChange = (e) => {
-        let name =e.target.name
+let handleChange = (e) => {
+         
+             console.log(e.target.name)
+        let name = e.target.name
         let value = e.target.value;
         setForm({...form,  [name]: value })
      }

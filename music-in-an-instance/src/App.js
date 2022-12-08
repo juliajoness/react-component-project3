@@ -5,7 +5,7 @@ import SubmitForm from "./Components/SubmitForm"
 
 function App(){
   const[albumData, setAlbumData] = useState([])
-  const[reviewsData, setReviewsData] = useState([])
+  // const[reviewsData, setReviewsData] = useState([])
   
   useEffect(()=>{
     fetch("http://localhost:9292/albums")
@@ -17,7 +17,7 @@ function App(){
   return(
     <div>
       <AlbumsContainer albumData={albumData}/>
-      <SubmitForm reviewsData={reviewsData} setReviewsData={setReviewsData}/>
+      <SubmitForm/>
     </div>
     );
 }
