@@ -34,8 +34,14 @@ const [rating, setRating] = useState ("")
     }
 
     return(
-        <p>
-            Comment:{reviewProp.comment} Rating:{reviewProp.rating}
+        <div className="comment-display">
+            <div>
+            <h2>Comment:{reviewProp.comment}</h2> 
+            <div/>
+            <div>
+            <h2>Rating:{reviewProp.rating}</h2>
+            </div>
+        </div>
             <Button onClick={onDelete} size='mini' color='red'>X</Button>
             <div>
                 <Form onSubmit={onUpdate}>
@@ -53,7 +59,7 @@ const [rating, setRating] = useState ("")
                             </Button>
                 </Form>
             </div>
-        </p>
+        </div>
     )
 }
 export default ReviewComponent
