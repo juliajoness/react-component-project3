@@ -1,6 +1,6 @@
 import React from "react"
 import AlbumImage from "./AlbumImage";
-import DropdownComponent from "./DropDownComponent";
+import DropdownComponent from "./DropdownComponent";
 
 function AlbumsContainer({albumData}){
 
