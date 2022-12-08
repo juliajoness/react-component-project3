@@ -1,14 +1,13 @@
 import React from "react";
 import ReviewComponent from "./ReviewComponent";
 
-function ReviewsContainer({reviewsData}){
+function ReviewsContainer({reviewsData, reviewRemover, updateReview, setReviewsData}){
 
-    const reviewsComponent= reviewsData.map(reviewObj => {
-        return <ReviewComponent key={reviewObj.id} reviewProp={reviewObj}/>
-    })
+    
+
 return(
     <div>
-        <h1> {reviewsComponent} </h1>
+        {reviewsData.map(reviewObj => <ReviewComponent key={reviewObj.id} setReviewsData = {setReviewsData} reviewProp={reviewObj} reviewRemover = {reviewRemover} updateReview = {updateReview}/>)}
     </div>
     )
 }

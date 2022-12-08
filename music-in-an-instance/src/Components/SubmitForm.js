@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 
 
-function SubmitForm () {
+function SubmitForm ({setReviewsData}) {
     const [comment, setComment] = useState ("")
     const [rating, setRating] = useState ("")
 
     const handleSubmit = (e) => 
     {e.preventDefault()
+    
 
     setComment("")
     setRating("")
