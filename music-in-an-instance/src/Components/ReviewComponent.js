@@ -17,7 +17,10 @@ const [rating, setRating] = useState ("")
 
     const onUpdate = (e) => {
         e.preventDefault()
-        console.log('firing')
+
+        setComment("")
+        setRating("")
+
         const newReview = {
             comment: comment,
             rating: rating
@@ -38,10 +41,10 @@ const [rating, setRating] = useState ("")
     return(
         <div className="comment-display">
             <div>
-                <h2>Comment:{reviewProp.comment}</h2> 
+                <h3>Comment:{reviewProp.comment}</h3> 
             <div/>
             <div>
-                <h2>Rating:{reviewProp.rating}</h2>
+                <h3>Rating:{reviewProp.rating}</h3>
             </div>
         </div>
             <br></br>
@@ -53,14 +56,14 @@ const [rating, setRating] = useState ("")
                         <label>Comment</label>
                         <input value={comment} type="text" name='comment' placeholder='Comment' onChange={(e) =>setComment(e.target.value)} />
                     </Form.Field>
-                        <Form.Field>
-                            <label>Rating</label>
-                            <input value={rating} type="number" min="1" max= "10" name='rating' placeholder='Rating' onChange={(e) =>setRating(e.target.value)}/>
-                        </Form.Field>
-                            <Button type="submit" icon labelPosition='left'>
-                                <Icon name='pencil'/>
-                                Edit
-                            </Button>
+                    <Form.Field>
+                        <label>Rating</label>
+                        <input value={rating} type="number" min="1" max= "10" name='rating' placeholder='Rating' onChange={(e) =>setRating(e.target.value)}/>
+                    </Form.Field>
+                        <Button type="submit" icon labelPosition='right'>
+                            <Icon name='pencil'/>
+                            Edit
+                        </Button>
                 </Form>
             </div>
         </div>

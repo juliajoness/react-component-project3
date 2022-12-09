@@ -12,6 +12,38 @@ code {
     monospace;
 }
 
+.dropdown{
+  padding-bottom: 35px;
+}
+
+.nav{
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 2rem 2rem;
+}
+.ulNav{
+  font-family: 'Helvetica', sans-serif;
+  text-align: right;
+  list-style: none;
+  display: flex;
+}
+
+.nav ul{
+  padding: 0;
+  margin: 0;
+  gap: 2rem;
+  text-align: center;
+}
+
+.nav li:hover{
+  color: rgb(201, 107, 107);
+}
+
+
 .comment-display {
   margin: 50px;
 }
@@ -22,7 +54,34 @@ code {
   width:100%;
   max-width:400px; }
 
-.image_container {
-  justify-content: center;
-  align-items: center;
-}
+  .image_container{
+    margin: 3rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .editComment{
+    justify-content: center;
+    text-align: center;
+  }
+
+  .field{
+    justify-content: center;
+    text-align: center;
+  }
+
+  .homepage{
+    padding: 5rem;
+    justify-content: center;
+    text-align: center;
+    background-color: aquamarine;
+    min-height: 100vh;
+  }
+
+  .paragraph{
+    justify-content: center;
+    text-align: left;
+    margin-left: 500px;
+    margin-right: 500px;
+    font-size: 25px;
+  }
