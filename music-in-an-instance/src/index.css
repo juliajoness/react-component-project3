@@ -14,6 +14,7 @@ code {
 
 .dropdown{
   padding-bottom: 35px;
+  font-size: 20px;
 }
 
 .nav{
@@ -55,7 +56,7 @@ code {
   max-width:400px; }
 
   .image_container{
-    margin: 3rem;
+
     justify-content: center;
     text-align: center;
   }
@@ -85,3 +86,8 @@ code {
     margin-right: 500px;
     font-size: 25px;
   }
+
+.albumpage{
+    background-color: rgb(130, 90, 242);
+    min-height: 100vh;
+}

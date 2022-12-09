@@ -14,7 +14,6 @@ function App(){
   },[])
 
   function addReviewToState(newReviewObj) {
-    // console.log('sure wish i could add this review to state', newReviewObj)
     const newAlbumArray = [...albumData]
     const index = newAlbumArray.findIndex(a => a.id === newReviewObj.album_id)
     newAlbumArray[index].reviews.push(newReviewObj)
@@ -25,7 +24,6 @@ function App(){
     console.log('sure wish i can replace this review', changedReviewObj)
     const changedAlbumArray = [...albumData]
     const index = changedAlbumArray.findIndex(a => a.id === changedReviewObj.album_id)
-    // changedAlbumArray[index].reviews.slice(changedReviewObj)
     const newReviewsArray = changedAlbumArray[index].reviews.map(r => r.id === changedReviewObj.id ? changedReviewObj : r)
     changedAlbumArray[index].reviews = newReviewsArray
     setAlbumData(changedAlbumArray)
