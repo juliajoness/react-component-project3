@@ -11,10 +11,18 @@ function App(){
     .then(setAlbumData)
   },[])
 
+  function addReviewToState(newReviewObj) {
+    // console.log('sure wish i could add this review to state', newReviewObj)
+    const newAlbumArray = [...albumData]
+    const index = newAlbumArray.findIndex(a => a.id === newReviewObj.album_id)
+    newAlbumArray[index].reviews.push(newReviewObj)
+    setAlbumData(newAlbumArray)
+  }
+
 
   return(
     <div>
-      <AlbumsContainer albumData={albumData}/>
+      <AlbumsContainer addReviewToState = {addReviewToState} albumData={albumData}/>
     </div>
     );
 }

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function SubmitForm({album_id}) {
+function SubmitForm({album_id, addReviewToState}) {
  
     let initialForm = {
         comment: "",
@@ -20,7 +20,7 @@ function SubmitForm({album_id}) {
         }).then(response => response.json())
           .then(data => {
             setForm(initialForm)
-           setReviewsData([...reviewsData, data])
+            addReviewToState(data)
     })
 }
 
