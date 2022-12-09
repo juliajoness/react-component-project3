@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import ReviewComponent from "./ReviewComponent.js"
 import SubmitForm from "./SubmitForm.js"
 
-function AlbumImage({ albumProp, addReviewToState}) {
+function AlbumImage({ albumProp, addReviewToState, changeReviewInState, deleteReviewInState}) {
   console.log(albumProp)
     const [reviews, setReviews] = useState([])
     function removeReviewFromState (review){
@@ -26,7 +26,7 @@ function AlbumImage({ albumProp, addReviewToState}) {
             <img className="image" src={albumProp.image_url} alt={albumProp.title} />
             <SubmitForm addReviewToState = {addReviewToState} album_id={albumProp.id}/>
             {albumProp.reviews.map(review => (
-                <ReviewComponent reviewRemover={removeReviewFromState} updateReview={updateReview} setReviewsData={setReviews} reviewProp={review} />
+                <ReviewComponent deleteReviewInState = {deleteReviewInState} changeReviewInState = {changeReviewInState} reviewRemover={removeReviewFromState} updateReview={updateReview} setReviewsData={setReviews} reviewProp={review} />
             ))}
         </div>
     )

@@ -19,10 +19,27 @@ function App(){
     setAlbumData(newAlbumArray)
   }
 
+  function changeReviewInState(changedReviewObj) {
+    console.log('sure wish i can replace this review', changedReviewObj)
+    const changedAlbumArray = [...albumData]
+    const index = changedAlbumArray.findIndex(a => a.id === changedReviewObj.album_id)
+    // changedAlbumArray[index].reviews.slice(changedReviewObj)
+    const newReviewsArray = changedAlbumArray[index].reviews.map(r => r.id === changedReviewObj.id ? changedReviewObj : r)
+    changedAlbumArray[index].reviews = newReviewsArray
+    setAlbumData(changedAlbumArray)
+  }
+
+  function deleteReviewInState(deletedReviewObj) {
+    const changedAlbumArray = [...albumData]
+    const index = changedAlbumArray.findIndex(a => a.id === deletedReviewObj.album_id)
+    const deleteReviewsArray = changedAlbumArray[index].reviews.filter(r => r.id !== deletedReviewObj.id ? deletedReviewObj : r)
+    changedAlbumArray[index].reviews = deleteReviewsArray
+    setAlbumData(changedAlbumArray)
+  }
 
   return(
     <div>
-      <AlbumsContainer addReviewToState = {addReviewToState} albumData={albumData}/>
+      <AlbumsContainer deleteReviewInState = {deleteReviewInState} addReviewToState = {addReviewToState} changeReviewInState = {changeReviewInState} albumData={albumData}/>
     </div>
     );
 }

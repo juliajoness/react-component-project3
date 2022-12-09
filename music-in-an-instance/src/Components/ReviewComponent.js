@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Button, Form, Icon} from 'semantic-ui-react'
-function ReviewComponent({reviewProp, reviewRemover, updateReview, setReviewsData}){
+function ReviewComponent({reviewProp, changeReviewInState, deleteReviewInState}){
 
 const [comment, setComment] = useState ("")
 const [rating, setRating] = useState ("")
@@ -11,12 +11,13 @@ const [rating, setRating] = useState ("")
         })
         .then(res => res.json())
         .then((review) => {
-            reviewRemover(review)
+            deleteReviewInState(review)
         })
     }
 
     const onUpdate = (e) => {
         e.preventDefault()
+        console.log('firing')
         const newReview = {
             comment: comment,
             rating: rating
@@ -24,12 +25,13 @@ const [rating, setRating] = useState ("")
 
         fetch(`http://localhost:9292/reviews/${reviewProp.id}`, {
             method:"PATCH",
-            headers: {"Content-Type": "application/json:"},
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify(newReview)
         })
         .then(res => res.json())
         .then((review) => {
-            updateReview(review)
+            // we dont want to use updateReview anymore, use changeReviewInState instead
+            changeReviewInState(review)
         })
     }
 
