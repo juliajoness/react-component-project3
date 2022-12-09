@@ -33,7 +33,6 @@ const [rating, setRating] = useState ("")
         })
         .then(res => res.json())
         .then((review) => {
-            // we dont want to use updateReview anymore, use changeReviewInState instead
             changeReviewInState(review)
         })
     }

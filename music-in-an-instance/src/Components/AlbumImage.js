@@ -3,7 +3,6 @@ import ReviewComponent from "./ReviewComponent.js"
 import SubmitForm from "./SubmitForm.js"
 
 function AlbumImage({ albumProp, addReviewToState, changeReviewInState, deleteReviewInState}) {
-  console.log(albumProp)
     const [reviews, setReviews] = useState([])
     function removeReviewFromState (review){
         const remainingReviews = reviews.filter((r) => r.id !== review.id)

@@ -25,8 +25,6 @@ function SubmitForm({album_id, addReviewToState}) {
 }
 
 let handleChange = (e) => {
-         
-             console.log(e.target.name)
         let name = e.target.name
         let value = e.target.value;
         setForm({...form,  [name]: value })

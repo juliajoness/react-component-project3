@@ -21,7 +21,6 @@ function App(){
   }
 
   function changeReviewInState(changedReviewObj) {
-    console.log('sure wish i can replace this review', changedReviewObj)
     const changedAlbumArray = [...albumData]
     const index = changedAlbumArray.findIndex(a => a.id === changedReviewObj.album_id)
     const newReviewsArray = changedAlbumArray[index].reviews.map(r => r.id === changedReviewObj.id ? changedReviewObj : r)
@@ -38,17 +37,11 @@ function App(){
   }
 
   return(
-    <div>
+    <>
       <NavBar />
         <Switch>
           <Route path="/myalbums">
             <AlbumsContainer deleteReviewInState = {deleteReviewInState} addReviewToState = {addReviewToState} changeReviewInState = {changeReviewInState} albumData={albumData}/>
-          </Route>
-          <Route path="/potato">
-            <>
-            <h1>Potato!</h1>
-            <p>I love Potatoes. Especially potatoes that meow!</p>
-            </>
           </Route>
           <Route exact path="/">
             <Home/>
@@ -57,7 +50,7 @@ function App(){
             <h1>Sorry to ruin your day, 404 Not Found</h1>
           </Route>
       </Switch>
-    </div>
+    </>
     );
 }
 
