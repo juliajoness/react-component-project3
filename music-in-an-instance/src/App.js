@@ -47,7 +47,7 @@ function App(){
           <Route path="/potato">
             <>
             <h1>Potato!</h1>
-            <p>I love Potatos. Escpecially potatos that meow!</p>
+            <p>I love Potatoes. Especially potatoes that meow!</p>
             </>
           </Route>
           <Route exact path="/">

@@ -8,9 +8,7 @@ console.log(displayAlbum)
     return(
        <div className="albumpage">
             <div className="image_container">
-                <div className="dropdown">
                 <DropdownComponent setDisplayAlbum={setDisplayAlbum} dropProp = {albumData}/>
-                </div>
                 {displayAlbum ? <AlbumImage deleteReviewInState = {deleteReviewInState} changeReviewInState = {changeReviewInState} addReviewToState= {addReviewToState} albumProp={displayAlbum}/> : <h1>Click dropdown</h1> }
             </div>
         </div> 

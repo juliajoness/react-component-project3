@@ -9,7 +9,7 @@ function DropdownComponent({ dropProp,setDisplayAlbum }) {
     }
 
     return (
-        <div>
+        <div className="dropdown">
             <select  onChange={handleChange} className='album-selector'>
                 <option value="Default">--Please Choose An Album--</option>
                 {dropProp.map((dropObj,i) =>
