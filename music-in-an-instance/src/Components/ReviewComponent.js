@@ -21,7 +21,7 @@ const [rating, setRating] = useState ("")
             comment: comment,
             rating: rating
         }
-        console.log(newReview)
+
         fetch(`http://localhost:9292/reviews/${reviewProp.id}`, {
             method:"PATCH",
             headers: {"Content-Type": "application/json:"},

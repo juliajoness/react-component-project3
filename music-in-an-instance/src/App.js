@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from "react"
 import AlbumsContainer from "./Components/AlbumsContainer"
-import SubmitForm from "./Components/SubmitForm"
-
 
 function App(){
   const[albumData, setAlbumData] = useState([])
@@ -17,7 +15,6 @@ function App(){
   return(
     <div>
       <AlbumsContainer albumData={albumData}/>
-      <SubmitForm/>
     </div>
     );
 }

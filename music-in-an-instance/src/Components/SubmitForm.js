@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 
-function SubmitForm() {
+function SubmitForm({album_id}) {
  
     let initialForm = {
         comment: "",
-        rating: ""
+        rating: "",
+        album_id: album_id
     }
 
     const [form, setForm] = useState(initialForm)
@@ -14,7 +15,7 @@ function SubmitForm() {
         e.preventDefault()
         fetch("http://localhost:9292/reviews",{
             method: "POST",
-            headers: {"Content-Type": "application/json:"},
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify(form)
         }).then(response => response.json())
           .then(data => {
